@@ -30,10 +30,15 @@ namespace Api.Controllers
         [Route("Export")]
         public async Task<ActionResult> StudentRecordExports()
         {
-            var data = await _studentService.GetStudentListInExcel();
-            DataTable datatable = new DataTable();
+            //get data from student table
+            var data = await _studentService.GetStudentList();
+            
+           //Use the LicenseContext property on the ExcelPackage class
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             ExcelPackage pck = new ExcelPackage();
+            
+            // create the row in excell 
+            DataTable datatable = new DataTable();
             datatable.Columns.Add("Id");
             datatable.Columns.Add("Neb Id");
             datatable.Columns.Add("Student Name");
