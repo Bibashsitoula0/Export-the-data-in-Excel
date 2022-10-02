@@ -63,7 +63,7 @@ namespace Api.Controllers
 
             byte[] filecontent = ExcelExportHelper.ExportExcel(datatable, heading, heading1, heading2, heading3, true);
 
-            return File(filecontent, ExcelExportHelper.ExcelContentType, "ApprenticeShip Training Record.xlsx");
+            return File(filecontent, ExcelExportHelper.ExcelContentType, "Student Record.xlsx");
         }
 
      }
